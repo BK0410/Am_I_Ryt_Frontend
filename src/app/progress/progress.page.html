@@ -1,5 +1,52 @@
 <app-nav-bar></app-nav-bar>
 
 <ion-content>
+    <div class="score-title">
+        <h3>SCORE</h3>
+    </div>
+    <div class="score">
+        <div class="correct">
+            <div class="correct-title">
+                <h5>Number of Correct Answers</h5>
+            </div>
+            <div class="separator">
+                <h3>:</h3>
+            </div>
+            <div class="correct-number">
+                {{correct_answers}}
+            </div>
+        </div>
+        <div class="wrong">
+            <div class="wrong-title">
+                <h5>Number of Wrong Answers</h5>
+            </div>
+            <div class="separator">
+                <h3>:</h3>
+            </div>
+            <div class="wrong-number">
+                {{wrong_answers}}
+            </div>
+
+        </div>
+        <div class="total">
+            <div class="total-title">
+                <h5>Total Noumber of questions</h5>
+            </div>
+            <div class="separator">
+                <h3>:</h3>
+            </div>
+            <div class="total-number">
+                {{total_questions}}
+            </div>
+
+        </div>
+        <div class="percentage">
+            <h3>Percentage : {{percentage}} %</h3>
+        </div>
+    </div>
+    <div class="goToHomeButton" routerLink="../home">
+        <ion-button expand=“full” color=“secondary”>
+            Go to Home</ion-button>
+    </div>
 
 </ion-content>

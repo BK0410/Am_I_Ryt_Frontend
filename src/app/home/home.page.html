@@ -10,8 +10,24 @@
         Video</ion-button>
     <ion-card class="text-area" *ngIf="isText && !isPdf && !isScan && !isVideo">
         <ion-item>
-            <textarea id="myInput" placeholder="Enter a text here"></textarea>
+            <textarea id="myInput" placeholder="Enter a text here" [(ngModel)]="speechToTextService.text"></textarea>
         </ion-item>
+
+        <div class="mic-icon">
+            <span class="material-symbols-outlined" (click)="startService()" *ngIf="!micOn">
+                mic_off
+            </span>
+            <span class="material-symbols-outlined" (click)="stopService()" *ngIf="micOn">
+                mic
+            </span>
+            <span class="material-symbols-outlined" (click)="convertTextToSpeech(speechToTextService.text)">
+                volume_up
+            </span>
+            <span class="material-symbols-outlined" (click)="clearInput()">
+                delete
+            </span>
+        </div>
+
     </ion-card>
     <ion-card class="upload-area" *ngIf="!isText && isPdf && !isScan && !isVideo">
         <ion-button class="upload-button" expand=“full” color=“secondary”>

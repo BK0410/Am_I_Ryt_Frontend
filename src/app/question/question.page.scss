@@ -1,44 +1,64 @@
-
 @import "../../theme/constant.scss";
-.dropbtn {
-    background-color:$primary-color;
-    color:$white;
-    position: absolute;
-    padding: 16px;
-    font-size: 16px;
-    width: 90%;
-    border: none;
-    border-radius: 5px;
-  }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #F9F9F9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-.dropdown-content a {
+
+.question-area {
+  top: 8%;
+  margin: 1rem;
+  height: 8em;
+  text-align: center;
+  padding-top: 10%;
   color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+  font-weight: 500;
+  font-size: 1em;
 }
-.dropdown-content a:hover {background-color: #F1F1F1}
-.dropdown:hover .dropdown-content {
-  display: block;
+
+#myOutput {
+  outline-offset: 0px;
+  outline: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  width: 25rem;
+  height: 17rem;
+}
+.answer-area {
+  top: 8%;
+  margin: 1rem;
 }
 #myInput {
-    outline-offset: 0px;
-    outline: none;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    width: 25rem;
-    height: 17rem;
+  outline-offset: 0px;
+  outline: none;
+  border: 3px solid $primary-color;
+  border-radius: 5px;
+  background: transparent;
+  width: 25rem;
+  height: 7rem;
+  margin-top: 20px;
+}
 
+ion-button {
+  border-radius: 5px;
+  position: absolute;
+  --box-shadow: none;
+  --background: white;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  top: 4%;
+  height: 3rem;
+  font-weight: 800;
+}
+.check-question-button {
+  background-color: $primary-color;
+  top: 75%;
+  width: 90%;
+  height: 3rem;
+  margin-left: 5%;
+  color: $white;
+}
+.material-symbols-outlined {
+  font-size: 1.5em;
+  position: absolute;
+  vertical-align: middle;
+  color: $primary-color;
+  left: 85%;
+  top: 75%;
 }

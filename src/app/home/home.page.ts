@@ -8,6 +8,8 @@ import { Plugin } from '@capacitor/core';
 import { CameraResultType, CameraSource, Camera } from '@capacitor/camera';
 import { Plugins } from 'protractor/built/plugins';
 import { from } from 'rxjs';
+import { VoiceRecognitionService } from '../services/VoiceRecognition/voice-recognition.service';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 //const {Camera}=Plugins;
 @Component({
   selector: 'app-home',
@@ -15,6 +17,9 @@ import { from } from 'rxjs';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  micOn: boolean = false;
+  text: string;
+  input_text = [];
   worker: Tesseract.Worker;
   workerReady = false;
   image = '../../assets/icon/test.png';
@@ -25,7 +30,18 @@ export class HomePage implements OnInit {
   isVideo: boolean = false;
   isScan: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    public speechToTextService: VoiceRecognitionService,
+    private textToSpeech: TextToSpeech
+  ) {
+    this.speechToTextService.init();
+    this.input_text = [
+      'Things are going well so far',
+      "That's the last straw",
+      'The best of both worlds',
+      'The person we were just talking about showed up!',
+    ];
     this.loadWorker();
   }
 
@@ -93,4 +109,30 @@ export class HomePage implements OnInit {
     this.ocrResult = result.data.text;
   }
   logo = LoginConstants.imgPath.logo;
+
+  startService() {
+    this.micOn = true;
+    this.speechToTextService.start();
+  }
+
+  stopService() {
+    this.micOn = false;
+    this.speechToTextService.stop();
+    // this.service.text = '';
+  }
+
+  clearInput() {
+    this.speechToTextService.text = '';
+  }
+
+  convertTextToSpeech(text) {
+    this.textToSpeech
+      .speak({
+        text: text,
+        locale: 'en-GB',
+        rate: 0.75,
+      })
+      .then(() => console.log('Done'))
+      .catch((reason: any) => console.log(reason));
+  }
 }

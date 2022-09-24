@@ -1,0 +1,49 @@
+@import "../../theme/constant.scss";
+
+.score-title {
+  height: 2.5em;
+  color: $primary-color;
+  text-align: center;
+}
+.score-title h3 {
+  font-size: 3em;
+  font-weight: 600;
+  margin-top: 2em;
+}
+.score {
+  margin-top: 5em;
+}
+.correct,
+.wrong,
+.total {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: right;
+  margin-right: 2.2em;
+}
+.correct-number,
+.wrong-number,
+.total-number {
+  margin-top: 0.7em;
+  margin-right: 2em;
+  font-size: 1.5em;
+}
+ion-button {
+  border-radius: 5px;
+  --box-shadow: none;
+  --background: white;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  height: 3rem;
+  font-weight: 800;
+}
+.goToHomeButton {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.percentage {
+  text-align: center;
+  margin-top: 3em;
+  color: $primary-color;
+}
