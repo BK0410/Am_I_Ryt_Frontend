@@ -1,0 +1,30 @@
+
+@import "../../theme/constant.scss";
+.logo{
+    height: 6rem;
+    margin-top: 100px;
+    margin-left: 40px;
+}
+ion-button{
+    --background: #2CBE88;
+    width: 10rem;
+    height: 3rem;
+    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+.form-1{
+    margin: 3rem 3rem 3rem 3rem;
+    ion-item{
+        --border-radius:1px
+    }
+}
+.sign-up-link{
+
+    color: $light-grey;
+    margin-left: 3.7rem;
+    a{
+        color: $light-grey;
+        text-decoration: underline;
+    }
+}

@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-nav-bar></app-nav-bar>
+<ion-content>
+    <ion-button class="text" expand=“full” (click)="changetoTextbox()">
+        Text</ion-button>
+    <ion-button class="pdf" expand=“full” (click)="changetoPdfbox()">
+        PDF</ion-button>
+    <ion-button class="scan" expand=“full” (click)="changetoScanbox()">
+        Scan</ion-button>
+    <ion-button class="video" expand=“full” (click)="changetoVideobox()">
+        Video</ion-button>
+        <ion-card class="text-area" *ngIf="isText && !isPdf && !isScan && !isVideo">
+            <ion-item>
+                <textarea id="myInput"  placeholder="Enter a text here"></textarea>
+              </ion-item>
+        </ion-card>
+        <ion-card class="upload-area" *ngIf="!isText && isPdf && !isScan && !isVideo">
+            <ion-button class="upload-button" expand=“full” color=“secondary” >
+                Upload Document</ion-button>
+                <span class="drop-text-1">or drop a PDFs here</span>
+        </ion-card>
+        <ion-card class="upload-area" *ngIf="!isText && !isPdf && isScan && !isVideo">
+            
+            <ion-fab-button  (click)="captureImage()" class="camera-button" expand="block" >
+                <span class="material-symbols-outlined">
+                    add_a_photo
+                    </span>
+              </ion-fab-button>
+              <ion-img [src]="image"></ion-img>
+              <!-- <ion-button (click)="recognizeImage()"expand="full" [disabled]="!workerReady" style="top:80%;">Generate</ion-button> -->
+              <!-- <ion-button (click)="captureImage()"expand="full"  style="top:80%;left: 40%;">Capture</ion-button> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+              <span class="drop-text-3">Scan a document</span>
+              <!-- <ion-card>
+                {{ocrResult}}
+              </ion-card> -->
+        </ion-card>
+        <ion-card class="upload-area" *ngIf="!isText && !isPdf && !isScan && isVideo">
+            <input type="text" class="video-link" placeholder="Link">
+            <ion-button class="video-upload-button" expand=“full” color=“secondary” >
+                Upload Video</ion-button>
+                <span class="drop-text-2">or drop a Videos here</span>
+        </ion-card>
+        <ion-button  (click)="routetoQuestionspage();recognizeImage()" class="generate-question-button" expand=“full” color=“secondary” >
+            Generate Question</ion-button>
 </ion-content>

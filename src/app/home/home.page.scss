@@ -1,27 +1,118 @@
-#container {
-  text-align: center;
+@import "../../theme/constant.scss";
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-button {
+    border-radius: 5px;
+    position: absolute;
+    --box-shadow: none;
+    --background: white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    top: 4%;
+    height: 3rem;
+    font-weight: 800;
+}
+ion-button:hover {
+
+    --background:#2CBE88;
+    color: $white;
+    border:none
+  
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.text {
+    left: 0.8rem;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.pdf {
+    width: 4.6rem;
+   left: 5.9rem;
+   
 }
 
-#container a {
-  text-decoration: none;
+.scan {
+    left: 11.2rem;
 }
+
+.video {
+    left: 16.5rem
+}
+.text-area{
+    top:20%;
+    margin: 1rem;
+}
+
+#myInput {
+    outline-offset: 0px;
+    outline: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    width: 25rem;
+    height: 17rem;
+
+}
+.generate-question-button {
+    background-color:$primary-color;
+   top: 75%;
+    width: 90%;
+    height: 3rem;
+    margin-left: 5%;
+    color: $white;
+  }
+  .upload-area{
+    top:20%;
+    margin: 1rem;
+    height: 13rem;
+}
+.upload-button,.video-upload-button{
+    background-color: $black;
+    top: 30%;
+    width: 80%;
+    margin-left: 9.5%;
+    color: $primary-color;
+    border:none;
+    --box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.video-upload-button{
+    top: 45%;
+    margin-left: -16.3rem;
+}
+
+.drop-text-1,.drop-text-2,.drop-text-3{
+    position: absolute;
+    color: $light-grey;
+    margin-left: 6rem;
+    top: 60%;
+}
+.drop-text-2{
+    top:75%;
+    margin-left: -12rem;
+}
+.drop-text-3{ margin-left: 7rem;}
+input{
+    outline-offset: 0px;
+    outline: none;
+    margin-top: 1.9rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+    border:2px solid #2CBE88;
+    height: 3rem;
+    width: 80%;
+}
+.material-symbols-outlined {
+    font-variation-settings: “FILL” 0, “wght” 600, “GRAD” 0, “opsz” 48;
+    font-size: 2.8em;
+    vertical-align: middle;
+    color: $primary-color;
+    padding-left: 4px;
+  }
+  .camera-button {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    border-radius: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    --background: black;
+      
+  }

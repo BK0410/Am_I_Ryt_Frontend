@@ -1,0 +1,25 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <img class="logo" src="{{logo}}" alt="logo">
+  <form class="form-1">
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button  [routerLink]="['/home']" type="submit"  expand="block">Log In</ion-button>
+         <span class="sign-up-link">Don't have an account ?<a (click)="routetoSignup()">Sign up</a></span> 
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
