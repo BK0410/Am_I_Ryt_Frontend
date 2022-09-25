@@ -6,7 +6,6 @@ declare var webkitSpeechRecognition: any;
   providedIn: 'root',
 })
 export class VoiceRecognitionService {
-  answer = 'Hello';
   recognition = new webkitSpeechRecognition();
   isStoppedSpeechRecog = false;
   public text = '';
@@ -50,10 +49,7 @@ export class VoiceRecognitionService {
   }
 
   wordConcat() {
-    this.text = this.text + ' ' + this.tempWords + '.';
+    this.text = this.text + ' ' + this.tempWords + '';
     this.tempWords = '';
-    if (this.text == this.answer) {
-      console.log('CORRECT');
-    }
   }
 }

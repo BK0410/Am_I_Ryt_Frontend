@@ -9,7 +9,7 @@
     </span>
   </ion-card>
   <ion-item lines="none" class="answer-area">
-    <input id="myInput" placeholder="Write your answer" [(ngModel)]="answerToQues" autocomplete="off">
+    <input id="myInput" placeholder="Write your answer" [(ngModel)]="speechToTextService.text" autocomplete="off">
     <span class="material-symbols-outlined" (click)="startService()" *ngIf="!micOn">
       mic_off
     </span>

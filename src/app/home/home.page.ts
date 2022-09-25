@@ -123,7 +123,6 @@ export class HomePage implements OnInit {
   stopService() {
     this.micOn = false;
     this.speechToTextService.stop();
-    // this.service.text = '';
   }
 
   clearInput() {

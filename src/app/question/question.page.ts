@@ -28,8 +28,10 @@ export class QuestionPage implements OnInit {
   constructor(
     private textToSpeech: TextToSpeech,
     private router: Router,
-    private speechToTextService: VoiceRecognitionService
-  ) {}
+    public speechToTextService: VoiceRecognitionService
+  ) {
+    this.speechToTextService.init();
+  }
 
   ngOnInit() {
     for (const key in this.questAns) {
