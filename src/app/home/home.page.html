@@ -30,9 +30,15 @@
 
     </ion-card>
     <ion-card class="upload-area" *ngIf="!isText && isPdf && !isScan && !isVideo">
-        <ion-button class="upload-button" expand=“full” color=“secondary”>
+        <!-- <ion-button class="upload-button" expand=“full” color=“secondary”>
             Upload Document</ion-button>
-        <span class="drop-text-1">or drop a PDFs here</span>
+        <span class="drop-text-1">or drop a PDFs here</span> -->
+
+        <label class="btn btn-default">
+            <input type="file" (change)="selectFile($event)">
+        </label>
+
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
     </ion-card>
     <ion-card class="upload-area" *ngIf="!isText && !isPdf && isScan && !isVideo">
 

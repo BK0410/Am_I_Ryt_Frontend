@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Tesseract from 'tesseract.js';
+import * as aws from 'aws-sdk';
 import { LoginConstants } from '../shared/constant';
 import { createWorker } from 'tesseract.js';
 //import { AnyPlugin } from 'any-plugin';
@@ -10,6 +11,8 @@ import { Plugins } from 'protractor/built/plugins';
 import { from } from 'rxjs';
 import { VoiceRecognitionService } from '../services/VoiceRecognition/voice-recognition.service';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { environment } from 'src/environments/environment';
+import { UploadService } from '../services/upload/upload.service';
 //const {Camera}=Plugins;
 @Component({
   selector: 'app-home',
@@ -18,6 +21,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 })
 export class HomePage implements OnInit {
   micOn: boolean = false;
+  selectedFiles: FileList;
   text: string;
   input_text = [];
   worker: Tesseract.Worker;
@@ -33,7 +37,8 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     public speechToTextService: VoiceRecognitionService,
-    private textToSpeech: TextToSpeech
+    private textToSpeech: TextToSpeech,
+    private uploadService: UploadService
   ) {
     this.speechToTextService.init();
     this.input_text = [
@@ -134,5 +139,14 @@ export class HomePage implements OnInit {
       })
       .then(() => console.log('Done'))
       .catch((reason: any) => console.log(reason));
+  }
+
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.uploadService.uploadFile(file);
+  }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 }

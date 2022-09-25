@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { VoiceRecognitionService } from '../services/VoiceRecognition/voice-recognition.service';
 
 @Component({
   selector: 'app-question',
@@ -8,6 +9,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
   styleUrls: ['./question.page.scss'],
 })
 export class QuestionPage implements OnInit {
+  micOn: boolean = false;
   answerToQues = '';
   correct_answers: number = 0;
   wrong_answers: number = 0;
@@ -23,7 +25,11 @@ export class QuestionPage implements OnInit {
     'Which is the capital of India?': 'New Delhi',
     'Where is Gateway of India located?': 'Mumbai',
   };
-  constructor(private textToSpeech: TextToSpeech, private router: Router) {}
+  constructor(
+    private textToSpeech: TextToSpeech,
+    private router: Router,
+    private speechToTextService: VoiceRecognitionService
+  ) {}
 
   ngOnInit() {
     for (const key in this.questAns) {
@@ -32,6 +38,17 @@ export class QuestionPage implements OnInit {
     }
 
     this.total_questions = this.questions.length;
+  }
+
+  startService() {
+    this.micOn = true;
+    this.speechToTextService.start();
+  }
+
+  stopService() {
+    this.micOn = false;
+    this.speechToTextService.stop();
+    // this.service.text = '';
   }
 
   convertTextToSpeech(text) {

@@ -10,7 +10,10 @@
   </ion-card>
   <ion-item lines="none" class="answer-area">
     <input id="myInput" placeholder="Write your answer" [(ngModel)]="answerToQues" autocomplete="off">
-    <span class="material-symbols-outlined">
+    <span class="material-symbols-outlined" (click)="startService()" *ngIf="!micOn">
+      mic_off
+    </span>
+    <span class="material-symbols-outlined" (click)="stopService()" *ngIf="micOn">
       mic
     </span>
     <!-- <span (click)="changetoMicOn()" class="material-symbols-outlined">
