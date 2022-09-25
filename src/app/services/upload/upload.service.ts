@@ -11,13 +11,13 @@ export class UploadService {
   uploadFile(file) {
     const contentType = 'pdf';
     const bucket = new S3({
-      accessKeyId: 'ASIAVM6ULLGEP3PZXRNR',
-      secretAccessKey: '2CDyohlBnBZXttAhZNxf8BBy5Xjrogw8NgRCmPZx',
+      accessKeyId: 'AKIAVM6ULLGEKQWF4NIE',
+      secretAccessKey: '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',
       region: 'us-east-1',
     });
     const params = {
       Bucket: 'am-i-ryt-pdf',
-      Key: 'fileName',
+      Key: file.name,
       Body: file,
       ACL: 'public-read',
       ContentType: contentType,

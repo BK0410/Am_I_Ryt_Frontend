@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { VoiceRecognitionService } from '../services/VoiceRecognition/voice-recognition.service';
@@ -68,7 +69,8 @@ export class QuestionPage implements OnInit {
     this.i = this.i + 1;
 
     if (
-      this.answerToQues.toLowerCase() == this.questAns[question].toLowerCase()
+      this.speechToTextService.text.toLowerCase() ==
+      this.questAns[question].toLowerCase()
     ) {
       this.correct_answers = this.correct_answers + 1;
       this.correct_responses[question] = this.answerToQues;
@@ -84,6 +86,6 @@ export class QuestionPage implements OnInit {
       this.noQuestions = true;
       this.router.navigate(['progress']);
     }
-    this.answerToQues = '';
+    this.speechToTextService.text = '';
   }
 }

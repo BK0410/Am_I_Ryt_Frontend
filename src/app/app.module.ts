@@ -7,10 +7,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     IonicModule.forRoot(),
     RouterModule,
